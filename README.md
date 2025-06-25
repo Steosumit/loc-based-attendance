@@ -1,6 +1,7 @@
 # Attendance Project
 
-A Node.js-based web application for recording and managing classroom attendance with geolocation validation. An old project I build in sem 1 of my bachelor degree
+A Node.js-based web application for recording and managing classroom attendance with geolocation validation. An old project I built in sem 1 of my bachelor degree
+[DEMO VIDEO](https://drive.google.com/file/d/1WSBD_EG_We4qfY_T-5CpVKsrff5cXBmN/view)
 
 ## Features
 
