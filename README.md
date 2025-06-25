@@ -1,6 +1,6 @@
 # Attendance Project
 
-A Node.js-based web application for recording and managing classroom attendance with geolocation validation. Developed by Sumit Gupta.
+A Node.js-based web application for recording and managing classroom attendance with geolocation validation. An old project I build in sem 1 of my bachelor degree
 
 ## Features
 
