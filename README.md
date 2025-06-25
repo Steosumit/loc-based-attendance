@@ -27,7 +27,6 @@ A Node.js-based web application for recording and managing classroom attendance 
 │   ├── violation.html            # Duplicate attempt/violation page
 │   └── ...                       # Other static assets (images, etc.)
 ├── btechmtech_2023-2028_*.csv    # Attendance records per subject
-├── Register.html                 # Registration form (template)
 ├── package.json                  # Project dependencies
 └── Notes.txt                     # Developer notes and references
 ```
