@@ -1,0 +1,59 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="code.css">
+		<link rel="stylesheet" href="">
+		<script type="text/javascript" src="code.js"></script>
+		<title> ATTENDANCE PAGE</title>
+	</head>
+	<body>
+		
+		<center>
+			<div id="spinner_overlay"></div>
+			<div class ="box">
+				<form id ="form_id">
+					
+						<label for="email_input_id" id="email_label_id">ENTER EMAIL</label>
+						<input type="text" id="email_input_id" name ="email_input_id" placeholder="Enter...">
+					
+					
+						<label for ="name_input_id" id="name_label_id">ENTER NAME</label>
+						<input type ="text" id ="name_input_id" name="name_input_id" placeholder="Enter...">
+						
+						<div id="spinner_element"></div>
+						<!-- div element for Please wait ... (29 Nov 2023)-->
+						<div id="combo_box_area">
+
+							<label for="combobox_id">Choose Subject:</label>
+							<select name="combobox_id" id="combobox_id">
+								<option value="Math">Math</option>
+								<option value="CS">CS</option>
+								<option value="C">C</option>
+								<option value="Physics">Physics</option>
+								<option value="BEE">BEE</option>
+								<option value="EG">EG</option>
+							</select>
+
+						</div>
+						
+						<h6 id = "message_label_id" color="red"> <i>... messages will appear here ... </i></h4>
+
+						<button type ="submit" id = "button_id"> SUBMIT </button>
+
+						<button id="report_button_id">
+							REPORT NO INSTRUCTOR<br><i>(bypass location validation)</i>
+						</button>
+
+						<h5 id = "developer" > Developed by &copy; Sumit </h5>
+					
+				</form>
+				
+			</div>
+		</center>
+	
+	
+	</body>
+	</html>

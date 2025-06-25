@@ -1,0 +1,146 @@
+
+Error code 1: Framework issue in submit function
+Error code 2: Location validation failed
+Error code 3: Flag not one. See writeSheet() and Submit(), probably.
+
+*{
+    DOC MDN for fetch() method of making client requests: 
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+}
+
+*{
+    Confusion regarding JSON JSON.stringify and mapping Objects aka dictionaries:
+     
+     I see where the confusion might be coming from. The issue is likely related to how you are logging the object on the server side. 
+     If you use console.log(dataObjectInNode), it will display the default string representation of the object, which is [object Object].
+
+To log the actual values of the object, especially when it's in JSON format, you need to use JSON.stringify in your logging statement as well.
+
+    Basically, json files sent in body as JSON formetted strings as body accepts only string. Also, the header
+    we apecified "Content-Type" : "application.json". So the Object mappings in console are shown as Objects and so 
+    needs to be stringified in the server side as well.
+
+}
+
+
+*{
+    Array operations:
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+
+
+}
+
+*{
+    Cookie thing:
+        var hour = 3600000
+req.session.cookie.expires = new Date(Date.now() + hour)
+req.session.cookie.maxAge = hour
+}
+
+*{
+    Issue of undefined object in express-session
+
+    Remember to use res.send(...) only once as 1 request--req can send only 1 response--res, else it would
+    be undefined.
+}
+
+*{
+    I see, thanks for the clarification. When using express.static, it's important to understand that it will handle the request and send the response for static files, effectively ending the request-response cycle. If you have middleware or route handlers defined after express.static, they won't be executed for static file requests.
+
+If you want to add additional middleware or route handling after serving static files, you should define it before the express.static middleware. Here's an example:
+
+javascript
+Copy code
+const express = require('express');
+const session = require('express-session');
+const path = require('path');
+
+const app = express();
+
+// Your custom middleware
+app.use((req, res, next) => {
+    console.log('Custom middleware for all routes');
+    next();
+});
+
+// Use express.static middleware at the top level
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Your route handlers or additional middleware
+app.use('/', (req, res) => {
+    console.log('Route handler for /');
+    res.send('Hello World!');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+In this example, the custom middleware and route handler come before express.static. This ensures that they are executed before express.static handles static file requests.
+
+If you need specific middleware or route handling to occur only for certain routes and not interfere with static file serving, you might consider using express.Router() to define separate route modules with their own middleware stack.
+
+javascript
+Copy code
+const express = require('express');
+const path = require('path');
+
+const app = express();
+const router = express.Router();
+
+// Custom middleware for all routes
+router.use((req, res, next) => {
+    console.log('Custom middleware for router');
+    next();
+});
+
+// Route handler for /
+router.get('/', (req, res) => {
+    console.log('Route handler for /');
+    res.send('Hello World!');
+});
+
+// Use express.static middleware at the top level
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Mount the router to a specific path
+app.use('/myroute', router);
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+In this case, the custom middleware and route handler are specific to the /myroute path and won't interfere with static file serving.
+ Adjust the structure based on your specific needs and routing requirements.
+}
+
+
+
+*{  Information regarding sessions and sessionIDs:
+    Yes, that's correct. The session object can store data about more than one user, but it's important to clarify how it is typically structured.
+
+In a web application, each user is assigned a unique session ID. The session object is often maintained on the server, and the session ID is sent to the client, usually as a cookie.
+This session ID is then used to associate subsequent requests from the same client with the correct session on the server.
+
+}
+
+* {
+    ISSUE WITH LOCAL AND GLOBAL SCOPE OF getElementById variables:
+
+    ...
+
+
+    
+}
+
+* {
+    Sleep in JS :
+    await new Promise( (resolve, reject) => {
+				setTimeout(resolve, 5 * 1000); // wait for the resolve() for 5 * 1000 s
+			});
+}
+
+
+P.S{
+    * -->   are topic discussions
+}
